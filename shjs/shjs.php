@@ -50,8 +50,8 @@ class shjs extends plxPlugin {
 		$themeSHJS = $this->getParam('style_shjs');
 		if(!$this->inAdmin)
 			$this->pathShjs = plxMotor::getInstance()->racine.PLX_PLUGINS.'shjs/';
-		echo '<script type="text/javascript" src="', $this->pathShjs ,'sh_main.js"></script>';
-		echo '<link type="text/css" rel="stylesheet" href="', $this->pathShjs, 'shx_main.css">';
+		echo '<script type="text/javascript" src="', $this->pathShjs ,'sh_main.min.js"></script>';
+		echo '<link type="text/css" rel="stylesheet" href="', $this->pathShjs, 'shx_main.min.css">';
 		echo '<link type="text/css" rel="stylesheet" href="', $this->pathShjs;
 		if(empty($themeSHJS))
 			echo 'sh_style.min.css">';
