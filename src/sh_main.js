@@ -950,6 +950,27 @@ function sh_afterLoad(language) {
 	}
 }
 
+function sh_getLanguage(element) {
+  var result = '';
+  var htmlClass = element.className;
+  if (htmlClass && htmlClass.length > 0) {
+    var htmlClasses = htmlClass.split(' ');
+    for (var i = 0; i < htmlClasses.length; i++) {
+      var htmlClass = htmlClasses[i].toLowerCase();
+      if(htmlClass.length > 0) {
+        if('sh-sourcecode' === htmlClass)
+        {
+          result = '';
+	      break;
+        }
+        if(htmlClass.substr(0, 3) === 'sh_') 
+	      result = htmlClass.substring(3);
+      }
+    }
+  }
+  return result;
+}
+
 /**
 Highlights all elements containing source code on the current page. Elements
 containing source code must be "pre" elements with a "class" attribute of
@@ -966,25 +987,15 @@ function sh_highlightDocument(prefix, suffix) {
   
   for (var i = 0; i < nodeList.length; i++) {
     var element = nodeList[i];
-    var htmlClasses = sh_getClasses(element);
-    for (var j = 0; j < htmlClasses.length; j++) {
-      var htmlClass = htmlClasses[j].toLowerCase();
-      if (htmlClass === 'sh-sourcecode') {
-        continue;
-      }
-      if (htmlClass.substr(0, 3) === 'sh-') {
-        var language = htmlClass.substring(3);
-        if (language in sh_languages) {
-          sh_highlightElement(element, sh_languages[sh_lang]);
-        }
-        else if (typeof(prefix) === 'string' && typeof(suffix) === 'string') {
+    var language = sh_getLanguage(element);
+    if(language.length > 0)
+    {
+        if (language in sh_languages) 
+          sh_highlightElement(element, sh_languages[language]);
+        else if (typeof(prefix) === 'string' && typeof(suffix) === 'string')
           sh_load(language, element, prefix, suffix);
-        }
-        else {
+        else
           throw 'Found <pre> element with class="' + htmlClass + '", but no such language exists';
-        }
-        break;
-      }
     }
   }
 }
