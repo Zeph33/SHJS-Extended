@@ -12,6 +12,7 @@ pre.sh-sourceCode {
 	padding: 5px 5px 5px 7px;
 	display: block;
 	overflow: auto;
+	font-family: monospace;
 }
 pre.sh-sourceCode span {
 	margin: 0;
