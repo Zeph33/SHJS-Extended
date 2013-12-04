@@ -871,9 +871,9 @@ function sh_lineNumbers(element, lines) {
   innerWrapper.appendChild(element);
   
   //Making both column of table of same height
-  lineNumbers.style.paddingBottom=0;
-  var diff=element.offsetHeight - lineNumbers.clientHeight;
-  lineNumbers.style.paddingBottom=(diff)+'px';
+//  lineNumbers.style.paddingBottom=0;
+//  var diff=element.offsetHeight - lineNumbers.clientHeight;
+//  lineNumbers.style.paddingBottom=(diff)+'px';
   
   //Adjust height of topbar
   topbar.style.height = (actions.offsetHeight) +'px';
