@@ -4,38 +4,38 @@
   <title>Example</title>
   <!-- The follwing are the files that must be added for using SHJS-Extended -->
   <!-- Common Styles -->
-  <link rel="stylesheet" href="shjsx/shx_main.min.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="shjs/shx_main.min.css" type="text/css" media="all"/>
   <!-- Theme file. There are many more themes in the css folder -->
-  <link rel="stylesheet" href="shjsx/css/shx_theme.min.css" type="text/css" media="all"/>
+  <link rel="stylesheet" href="shjs/css/shx_theme.min.css" type="text/css" media="all"/>
   <!-- For printers -->
 	<!--
 		This gives a black and white highlighting for print (It will work for any theme). 
 		If you are using shx_theme.min.css (or any light-background theme) then you may try shx_print.min.css for printing with colors.
 	-->
-  <link rel="stylesheet" href="shjsx/css/sh_print.min.css" type="text/css" media="print" />
+  <link rel="stylesheet" href="shjs/css/sh_print.min.css" type="text/css" media="print" />
   <!-- Main JS file -->
-  <script type="text/javascript" src="shjsx/sh_main.min.js"></script>
+  <script type="text/javascript" src="shjs/sh_main.min.js"></script>
   
   <script type="text/javascript">
 	function init() { //body onload
 		var start=new Date();
 		/*
 			What does sh_highlightDocument do?
-			It finds all html pre elements whose 'class' attribute is sh-{language} (where {language} is the name of a programming language. See 'lang' folder for names of all supported languages).
+			It finds all html pre elements whose 'class' attribute is sh_{language} (where {language} is the name of a programming language. See 'lang' folder for names of all supported languages).
 			It then loads the neccessary language files (if it hasn't been loaded) and then syntax highlights the pre element.
 			
 			Function call: sh_highlightDocument(path_to_shjsx_directory, suffix);
-			Any CSS class named sh-{language} on a pre element
+			Any CSS class named sh_{language} on a pre element
 			will cause to load file
 			path_to_shjx_directory/lang/sh_{language}.suffix
 			
 			Example:
-			If a pre element has a class named sh-cpp, then a call such as:
+			If a pre element has a class named sh_cpp, then a call such as:
 				sh_highlightDocument('myfolder/shjsx/', '.min.js');
 			will first load myfolder/shjsx/lang/sh_cpp.min.js
 			and then do the syntax highlighting.
 		*/
-		sh_highlightDocument('shjsx/', '.min.js'); //where shjsx/ is the path to directory where the SHJSX files are placed.
+		sh_highlightDocument('shjs/', '.min.js'); //where shjsx/ is the path to directory where the SHJSX files are placed.
 		//And '.min.js' is the js file suffix.
 		
 		var stop=new Date();
@@ -65,7 +65,7 @@
 <div id="processTime"></div>
 
 <!-- "title" attribute of the pre element will be taken as the code/header title -->
-<pre class="sh-javascript" title="Code snippet from sh_main.js">
+<pre class="sh_javascript" title="Code snippet from sh_main.js">
 /**
  * @description Finds all occurances of a word in a pre element and marks/highlights them (using a span element and defined CSS class).
  * @param {HTMLPreElement} element
@@ -167,7 +167,7 @@ function shx_hilitWord(element,word,wholeWord) {
 }
 </pre>
 <br/>
-<pre class="sh-cpp" title="matrix.cpp">
+<pre class="sh_cpp" title="matrix.cpp">
 /**
  * &quot;Enter the Matrix&quot; ASCII Animation with C++ and Windows API
  */

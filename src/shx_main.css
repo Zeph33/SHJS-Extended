@@ -4,10 +4,11 @@ Copyright (C) 2007, 2008 gnombat@users.sourceforge.net
 License: http://shjs.sourceforge.net/doc/gplv3.html
 
 Second Author: F1skr from https://github.com/F1skr/SHJS-Linenumbers/blob/master/src/sh_main.js
-Third Author: Munawwar
+Third Author: Munawwar from https://github.com/Munawwar/SHJS-Extended
+Four Author: zeph https://github.com/Zeph33/SHJS-Extended
 */
 
-pre.sh-sourceCode {
+pre.sh-sourceCode, pre.shx-linenum {
 	margin: 0;
 	padding: 5px 7px 5px 5px;
 	display: block;
@@ -15,8 +16,19 @@ pre.sh-sourceCode {
 	font-family: monospace;
 	line-height: 1em;
 	font-size: 12px;
+	white-space: pre;
 }
-pre.sh-sourceCode span {
+
+pre.shx-linenum {
+	color: #606060;
+	font-style: normal;
+	background-color: #f8f8f8;
+	background: #e8e8e8;
+	text-align: right;
+	float: left;
+}
+
+pre.sh-sourceCode span,  pre.shx-linenum span {
 	margin: 0;
 	padding: 0;
 	font-family: monospace;
@@ -83,18 +95,3 @@ div.shx-actions:hover span {
 	background-color: #80FF80;
 }
 
-.shx-linenum {
-	font-family: monospace;
-	line-height: 1em;
-	font-size: 12px;
-	color: #606060;
-	font-style: normal;
-	font-family: monospace;
-	background-color: #f8f8f8;
-	padding: 5px 7px 5px 5px;
-	margin: 0;
-	unicode-bidi: embed;
-	background: #e8e8e8;
-	text-align: right;
-	float: left;
-}
