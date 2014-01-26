@@ -2,10 +2,9 @@
 /**
  * Plugin shjs
  *
- * @package	PLX
- * @version	1.0
- * @date	28/05/2013
- * @author	gnombat@users.sourceforge.net
+ * @package	SHJS
+ * @version	1.1
+ * @date	26/01/2014
  * @author	Richard Didier
  **/
 class shjs extends plxPlugin {
@@ -50,15 +49,18 @@ class shjs extends plxPlugin {
 		$themeSHJS = $this->getParam('style_shjs');
 		if(!$this->inAdmin)
 			$this->pathShjs = plxMotor::getInstance()->racine.PLX_PLUGINS.'shjs/';
-		echo '<script type="text/javascript" src="', $this->pathShjs ,'sh_main.min.js"></script>';
-		echo '<link type="text/css" rel="stylesheet" href="', $this->pathShjs, 'shx_main.min.css">';
+		if($this->inAdmin)
+			echo '<script type="text/javascript" src="', $this->pathShjs ,'sh_main.js"></script>';
+		else
+			echo '<script type="text/javascript" src="', $this->pathShjs ,'sh_main.min.js"></script>';
+		echo '<link type="text/css" rel="stylesheet" href="', $this->pathShjs, 'shx_main.css">';
 		echo '<link type="text/css" rel="stylesheet" href="', $this->pathShjs;
 		if(empty($themeSHJS))
 			echo 'sh_style.min.css">';
 		else
 			echo 'css/', $themeSHJS,'">';
 		if($this->inAdmin)
-			echo '<script type="text/javascript" src="', $this->pathShjs ,'lang/sh_php.min.js"></script>';
+			echo '<script type="text/javascript" src="', $this->pathShjs ,'language/sh_php.min.js"></script>';
 	}
 
 	/**

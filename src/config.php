@@ -8,7 +8,7 @@ if(!empty($_POST)) {
 }
 
 # On récupère la liste des thèmes mobiles
-$aStyles[''] = 'None';//$plxPlugin->getLang('L_NONE1');
+$aStyles[''] = $plxPlugin->getLang('L_NONE');
 $files = plxGlob::getInstance(PLX_PLUGINS.'shjs/css');
 if($styles = $files->query('/^sh_[a-z0-9-_\.\(\)]+$/i')) {
 	foreach($styles as $k=>$v)
@@ -21,13 +21,13 @@ if($styles = $files->query('/^sh_[a-z0-9-_\.\(\)]+$/i')) {
 <form action="parametres_plugin.php?p=shjs" method="post">
 	<fieldset class="withlabel">
 		<legend><?php //$plxPlugin->lang('L_LEGEND') ?> </legend>
-		<p class="field"><label for="id_style_shjs"><?php //$plxPlugin->lang('L_SELECT') ?>&nbsp;</label></p>
+		<p class="field"><label for="id_style_shjs"><?php $plxPlugin->lang('L_SELECT_STYLE') ?>&nbsp;</label></p>
 		<?php plxUtils::printSelect('style_shjs', $aStyles, $plxPlugin->getParam('style_shjs')); ?>
-		<p><input type="submit" name="submit" value="Save<?php //$plxPlugin->lang('L_SAVE') ?>" /></p>
+		<p><input type="submit" name="submit" value="<?php $plxPlugin->lang('L_SAVE') ?>" /></p>
 	</fieldset>
 </form>
 
-<h2> Sample<?php //echo $plxPlugin->getLang('L_SAMPLE') ?></h2>
+<h2> <?php echo $plxPlugin->getLang('L_SAMPLE') ?></h2>
 
 <pre class="sh_php">
 <?php

@@ -925,7 +925,7 @@ function sh_load(language, element, prefix, suffix) {
 		return;
 	}
 	sh_requests[language] = [element];
-	var url = prefix + 'lang/sh_' + language + suffix; //This one is underscore, since js files are named with _
+	var url = prefix + 'language/sh_' + language + suffix; //This one is underscore, since js files are named with _
 	var script=document.createElement('script');
 	script.setAttribute('type','text/javascript');
 	script.setAttribute('src',url);
