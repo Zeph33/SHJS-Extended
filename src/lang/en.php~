@@ -1,9 +1,0 @@
-<?php
-
-$LANG = array(
-# admin
-'L_SAMPLE' => 'Sample',
-'L_NONE'   => 'None',
-'L_SAVE'   => 'Save'
-);
-?>
